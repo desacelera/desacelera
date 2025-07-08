@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal da Mente Milionária - 100 Ebooks para o Sucesso</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+            transform: translateY(-2px);
+        }
+
+        main {
+            margin-top: 80px;
+            padding: 2rem 0;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin: 2rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: #ffd700;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: white;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ffd700, #ffed4a);
+            color: #333;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+            border: none;
+            cursor: pointer;
+            animation: pulse 2s infinite;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.5);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .problems {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem 0;
+            margin: 2rem 0;
+            border-radius: 20px;
+        }
+
+        .problems h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 2rem;
+        }
+
+        .problem-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .problem-item {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(238, 90, 111, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .problem-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .problem-item::before {
+            content: "❌";
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .solution {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 3rem 0;
+            margin: 2rem 0;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .solution h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .solution p {
+            font-size: 1.2rem;
+            color: white;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .features {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem 0;
+            margin: 2rem 0;
+            border-radius: 20px;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 2rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(79, 172, 254, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-item::before {
+            content: "✨";
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .guarantee {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 3rem 0;
+            margin: 2rem 0;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+
+        .guarantee h2 {
+            font-size: 2.5rem;
+            color: #ffd700;
+            margin-bottom: 2rem;
+        }
+
+        .guarantee-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .guarantee-item::before {
+            content: "🔒";
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25d366;
+            color: white;
+            padding: 15px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        .price-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem 0;
+            margin: 2rem 0;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .price-box {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            max-width: 400px;
+            margin: 0 auto;
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .old-price {
+            font-size: 1.5rem;
+            text-decoration: line-through;
+            color: #ff6b6b;
+            margin-bottom: 0.5rem;
+        }
+
+        .new-price {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ffd700;
+            margin-bottom: 1rem;
+        }
+
+        .price-note {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        .screen-switcher {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            z-index: 2000;
+        }
+
+        #switcherBtn {
+            background: #4682B4;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(70,130,180,0.12);
+            transition: background 0.2s;
+        }
+
+        #switcherBtn:hover {
+            background: #87CEEB;
+            color: #2c3e50;
+        }
+
+        .switcher-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 110%;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(70,130,180,0.15);
+            min-width: 160px;
+            overflow: hidden;
+        }
+
+        .switcher-menu a {
+            display: block;
+            padding: 12px 20px;
+            color: #4682B4;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .switcher-menu a:hover {
+            background: #87CEEB;
+            color: #2c3e50;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .features-grid,
+            .problem-list {
+                grid-template-columns: 1fr;
+            }
+
+            .screen-switcher {
+                top: 10px;
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">💰 Portal da Mente Milionária</a>
+                <nav class="nav-links">
+                    <a href="#home">Início</a>
+                    <a href="#sobre">Sobre</a>
+                    <a href="#garantia">Garantia</a>
+                    <a href="#contato">Contato</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="hero" id="home">
+                <h1>AJA AGORA E CELEBRE SUAS CONQUISTAS:</h1>
+                <p class="subtitle">100 EBOOKS PARA UMA MENTE MILIONÁRIA CHEIA DE SUCESSO!</p>
+                <p>Desperte seu potencial ilimitado e comemore cada passo de sua transformação! Descubra os segredos dos livros mais vendidos que vão mudar seus hábitos, crenças e habilidades de um jeito recompensador e inovador.</p>
+                <button class="cta-button" onclick="scrollToPrice()">QUERO TRANSFORMAR MINHA VIDA AGORA! 🚀</button>
+            </section>
+
+            <section class="problems">
+                <div class="container">
+                    <h2>Você se identifica com algum desses problemas?</h2>
+                    <div class="problem-list">
+                        <div class="problem-item">
+                            <p>Inicia projetos para ganhar dinheiro com entusiasmo, mas desiste rapidamente por tédio ou dificuldade.</p>
+                        </div>
+                        <div class="problem-item">
+                            <p>Ganhos esporádicos que desaparecem tão rápido quanto surgem, sem acumulação.</p>
+                        </div>
+                        <div class="problem-item">
+                            <p>Gastos excessivos em novidades ou experiências, sem planejamento.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="solution">
+                <div class="container">
+                    <h2>A Solução Está Aqui!</h2>
+                    <p>O que poucos percebem é que essas ideias são apenas as crenças limitantes disfarçadas que impedem sua liberdade financeira. Você não tem culpa, e sim um mundo de possibilidades que os 100 Ebooks para uma Mente Milionária vão revelar, transformando seus hábitos e crenças de forma empolgante e recompensadora!</p>
+                </div>
+            </section>
+
+            <section class="features">
+                <div class="container">
+                    <h2>O QUE ESTÁ INCLUSO?</h2>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <p>Mergulhe em histórias de sucesso que vão inflamar sua paixão e te motivar a ir além.</p>
+                        </div>
+                        <div class="feature-item">
+                            <p>Uma coleção vibrante com 100 ebooks, sempre com algo novo e empolgante para aprender e aplicar.</p>
+                        </div>
+                        <div class="feature-item">
+                            <p>Mude sua mentalidade e seus resultados financeiros de forma leve, interessante e cheia de boas energias.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="guarantee" id="garantia">
+                <div class="container">
+                    <h2>GARANTIAS INCRÍVEIS</h2>
+                    <div class="guarantee-item">
+                        Assim que você fizer a compra, receberá um email com login de acesso e já poderá acessá-los.
+                    </div>
+                    <div class="guarantee-item">
+                        Todos os Livros são completos em formato PDF. Nenhum livro é físico.
+                    </div>
+                    <div class="guarantee-item">
+                        O acesso aos Ebooks é vitalício. Ou seja, fica liberado por tempo indeterminado.
+                    </div>
+                    <div class="guarantee-item">
+                        Você também terá acesso a todas as atualizações de novos livros que forem inseridos ao longo do tempo.
+                    </div>
+                </div>
+            </section>
+
+            <section class="price-section" id="preco">
+                <div class="container">
+                    <h2>OFERTA ESPECIAL POR TEMPO LIMITADO!</h2>
+                    <div class="price-box">
+                        <div class="old-price">De R$ 497,00</div>
+                        <div class="new-price">R$ 27,00</div>
+                        <div class="price-note">Acesso vitalício a todos os 100 ebooks!</div>
+                        <button class="cta-button" onclick="redirectToPayment()">GARANTIR MINHA TRANSFORMAÇÃO AGORA! 💎</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Portal da Mente Milionária. Todos os direitos reservados.</p>
+            <p>Transforme sua mentalidade, transforme sua vida!</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5511999999999" class="whatsapp-button" target="_blank">
+        📱
+    </a>
+
+    <div class="screen-switcher">
+        <button id="switcherBtn">Opções ▾</button>
+        <div id="switcherMenu" class="switcher-menu">
+            <a href="index1.html">Opção 1</a>
+            <a href="index.html">Opção 2</a>
+            <a href="2index.html">Opção 3</a>
+            <a href="3index.html">Opção 4</a>
+        </div>
+    </div>
+
+    <script>
+        function scrollToPrice() {
+            document.getElementById('preco').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+
+        function redirectToPayment() {
+            alert('Redirecionando para o pagamento...');
+            // Aqui você colocaria o link real do pagamento
+            // window.location.href = 'https://seulink.com/pagamento';
+        }
+
+        // Animação de entrada
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Efeito parallax suave
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero');
+            const speed = scrolled * 0.5;
+            parallax.style.transform = `translateY(${speed}px)`;
+        });
+
+        // Contador de visitantes simulado
+        let visitors = Math.floor(Math.random() * 1000) + 500;
+        setInterval(() => {
+            visitors += Math.floor(Math.random() * 3) + 1;
+            // Você pode adicionar um contador visual aqui
+        }, 30000);
+
+        // Menu de opções
+        const switcherBtn = document.getElementById('switcherBtn');
+        const switcherMenu = document.getElementById('switcherMenu');
+
+        switcherBtn.addEventListener('click', () => {
+            const isOpen = switcherMenu.style.display === 'flex';
+            switcherMenu.style.display = isOpen ? 'none' : 'flex';
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const btn = document.getElementById('switcherBtn');
+            const menu = document.getElementById('switcherMenu');
+            if (btn && menu) {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+                });
+                document.addEventListener('click', function() {
+                    menu.style.display = 'none';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
