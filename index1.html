@@ -191,11 +191,11 @@
         .solution-features li {
             padding: 1rem 0;
             position: relative;
-            padding-left: 2rem;
+            padding-left: 2.5rem;
         }
 
         .solution-features li::before {
-            content: '✓';
+            content: attr(data-icon);
             position: absolute;
             left: 0;
             color: #4682B4;
@@ -249,7 +249,7 @@
 
         .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
 
@@ -369,80 +369,8 @@
                 <li><a href="#beneficios">Benefícios</a></li>
                 <li><a href="#comprar">Comprar</a></li>
             </ul>
-            <div class="screen-switcher">
-                <button id="switcherBtn">Opções ▾</button>
-                <div id="switcherMenu" class="switcher-menu">
-                    <a href="index1.html">Opção 1</a>
-                    <a href="index.html">Opção 2</a>
-                    <a href="2index.html">Opção 3</a>
-                    <a href="3index.html">Opção 4</a>
-                </div>
-            </div>
         </nav>
     </header>
-        /* Screen Switcher */
-        .screen-switcher {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            z-index: 2000;
-        }
-        #switcherBtn {
-            background: #4682B4;
-            color: #fff;
-            border: none;
-            border-radius: 25px;
-            padding: 10px 24px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 2px 8px rgba(70,130,180,0.12);
-            transition: background 0.2s;
-        }
-        #switcherBtn:hover {
-            background: #87CEEB;
-            color: #2c3e50;
-        }
-        .switcher-menu {
-            display: none;
-            position: absolute;
-            right: 0;
-            top: 110%;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 16px rgba(70,130,180,0.15);
-            min-width: 160px;
-            overflow: hidden;
-        }
-        .switcher-menu a {
-            display: block;
-            padding: 12px 20px;
-            color: #4682B4;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background 0.2s, color 0.2s;
-        }
-        .switcher-menu a:hover {
-            background: #87CEEB;
-            color: #2c3e50;
-        }
-</style>
-<script>
-    // Toggle switcher menu
-    document.addEventListener('DOMContentLoaded', function() {
-        const btn = document.getElementById('switcherBtn');
-        const menu = document.getElementById('switcherMenu');
-        if (btn && menu) {
-            btn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-            });
-            document.addEventListener('click', function() {
-                menu.style.display = 'none';
-            });
-        }
-    });
-</script>
 
     <section class="hero">
         <div class="container">
@@ -456,27 +384,27 @@
 
     <section id="problema" class="problem">
         <div class="container">
-            <h2>Você se identifica com alguma dessas situações?</h2>
+            <h2>Esse material é pra você se...</h2>
             <div class="problem-grid">
                 <div class="problem-card scroll-animation">
-                    <div class="problem-icon">🧠</div>
-                    <h3>Mente Acelerada</h3>
-                    <p>Pensamentos correndo sem parar, dificuldade para relaxar e focar no presente</p>
-                </div>
-                <div class="problem-card scroll-animation">
                     <div class="problem-icon">😰</div>
-                    <h3>Ansiedade Constante</h3>
-                    <p>Preocupação excessiva com o futuro, sensação de que algo ruim vai acontecer</p>
+                    <h3>Ansiedade Atrapalha sua Rotina</h3>
+                    <p>Sente que a ansiedade interfere no seu dia a dia e nas suas atividades</p>
                 </div>
                 <div class="problem-card scroll-animation">
-                    <div class="problem-icon">⚡</div>
-                    <h3>Sobrecarga Mental</h3>
-                    <p>Dificuldade para processar informações, sensação de "curto-circuito" mental</p>
+                    <div class="problem-icon">💥</div>
+                    <h3>Já Teve Crises</h3>
+                    <p>Já passou por crises de ansiedade e não sabia o que fazer naquele momento</p>
                 </div>
                 <div class="problem-card scroll-animation">
-                    <div class="problem-icon">🔄</div>
-                    <h3>Ciclo Vicioso</h3>
-                    <p>Tentativas frustradas de desacelerar que só aumentam a ansiedade</p>
+                    <div class="problem-icon">🫁</div>
+                    <h3>Quer Aprender a Respirar</h3>
+                    <p>Busca aprender a respirar e se acalmar com consciência e controle</p>
+                </div>
+                <div class="problem-card scroll-animation">
+                    <div class="problem-icon">🧠</div>
+                    <h3>Mente Não Para Nunca</h3>
+                    <p>Procura uma alternativa simples e realista para cuidar da mente acelerada</p>
                 </div>
             </div>
         </div>
@@ -487,13 +415,15 @@
             <div class="solution-content">
                 <div class="scroll-animation">
                     <h2>A Solução que Você Precisa</h2>
-                    <p>O ebook "Desacelera" oferece um método comprovado para:</p>
+                    <p>O ebook "Desacelera" oferece:</p>
                     <ul class="solution-features">
-                        <li>Acalmar a mente agitada em apenas 10 minutos</li>
-                        <li>Reduzir drasticamente os níveis de ansiedade</li>
-                        <li>Recuperar o foco e a clareza mental</li>
-                        <li>Criar uma rotina sustentável de bem-estar</li>
-                        <li>Transformar sua relação com o tempo</li>
+                        <li data-icon="🎧">Áudios relaxantes para qualquer hora</li>
+                        <li data-icon="📘">Técnicas práticas para recuperar sua paz</li>
+                        <li data-icon="💤">Ajuda para dormir melhor, desligar a mente e combater a insônia</li>
+                        <li data-icon="🧭">Um passo a passo direto, sem enrolação, pra você se acalmar com leveza</li>
+                        <li data-icon="🌀">Soluções reais para ansiedade e mente acelerada</li>
+                        <li data-icon="💸">Investimento acessível para um alívio valioso</li>
+                        <li data-icon="❤️">Suporte emocional para quem sente que a mente não para nunca</li>
                     </ul>
                 </div>
                 <div class="book-mockup scroll-animation">
@@ -510,34 +440,34 @@
             <h2>O que você vai conseguir:</h2>
             <div class="benefits-grid">
                 <div class="benefit-card scroll-animation">
-                    <div class="benefit-icon">🧘</div>
-                    <h3>Paz Mental</h3>
-                    <p>Técnicas para silenciar a mente e encontrar tranquilidade interior</p>
+                    <div class="benefit-icon">🎧</div>
+                    <h3>Áudios Relaxantes</h3>
+                    <p>Acesso a áudios especialmente criados para te ajudar a relaxar a qualquer hora do dia</p>
                 </div>
                 <div class="benefit-card scroll-animation">
-                    <div class="benefit-icon">⚡</div>
-                    <h3>Mais Energia</h3>
-                    <p>Recupere sua vitalidade parando de desperdiçar energia mental</p>
+                    <div class="benefit-icon">📘</div>
+                    <h3>Técnicas Práticas</h3>
+                    <p>Métodos comprovados e fáceis de aplicar para recuperar sua paz interior</p>
                 </div>
                 <div class="benefit-card scroll-animation">
-                    <div class="benefit-icon">🎯</div>
-                    <h3>Foco Laser</h3>
-                    <p>Concentre-se no que realmente importa e seja mais produtivo</p>
+                    <div class="benefit-icon">💤</div>
+                    <h3>Sono Reparador</h3>
+                    <p>Aprenda a desligar a mente e combater a insônia para dormir melhor</p>
                 </div>
                 <div class="benefit-card scroll-animation">
-                    <div class="benefit-icon">😌</div>
-                    <h3>Menos Stress</h3>
-                    <p>Aprenda a gerenciar o estresse e manter a calma sob pressão</p>
+                    <div class="benefit-icon">🧭</div>
+                    <h3>Passo a Passo Direto</h3>
+                    <p>Orientações claras e objetivas, sem enrolação, para se acalmar com leveza</p>
                 </div>
                 <div class="benefit-card scroll-animation">
-                    <div class="benefit-icon">🚀</div>
-                    <h3>Melhor Performance</h3>
-                    <p>Alcance melhores resultados trabalhando com menos esforço</p>
+                    <div class="benefit-icon">🌀</div>
+                    <h3>Soluções Reais</h3>
+                    <p>Estratégias eficazes para lidar com ansiedade e mente acelerada</p>
                 </div>
                 <div class="benefit-card scroll-animation">
                     <div class="benefit-icon">❤️</div>
-                    <h3>Bem-estar Geral</h3>
-                    <p>Transforme sua qualidade de vida de forma sustentável</p>
+                    <h3>Suporte Emocional</h3>
+                    <p>Acolhimento e orientação para quem sente que a mente não para nunca</p>
                 </div>
             </div>
         </div>
@@ -547,7 +477,7 @@
         <div class="container">
             <h2>Transforme Sua Vida Hoje</h2>
             <div class="price">R$ 27,00</div>
-            <p>Investimento único por uma transformação permanente</p>
+            <p>Investimento acessível para um alívio valioso</p>
             
             <div class="guarantee">
                 <h3>🛡️ Garantia de 30 dias</h3>
