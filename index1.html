@@ -3,372 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desacelera - Transforme sua Relação com o Tempo</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
-            background: #B0E0E6; /* Powder Blue */
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(135, 206, 235, 0.95); /* Sky Blue */
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(70, 130, 180, 0.08); /* Steel Blue shadow */
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #4682B4; /* Steel Blue */
-            letter-spacing: 2px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #4682B4;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #87CEEB;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #87CEEB 0%, #4682B4 100%);
-            color: #2c3e50;
-            padding: 120px 0 80px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%2387ceeb22" points="0,0 1000,300 1000,1000 0,700"/></svg>');
-            background-size: cover;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero-subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease-out 0.2s both;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: #4682B4;
-            color: #fff;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(70, 130, 180, 0.18);
-            animation: fadeInUp 1s ease-out 0.4s both;
-        }
-
-        .cta-button:hover {
-            background: #87CEEB;
-            color: #2c3e50;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(135, 206, 235, 0.22);
-        }
-
-        /* Problem Section */
-        .problem {
-            padding: 80px 0;
-            background: #B0E0E6;
-        }
-
-        .problem h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #2c3e50;
-        }
-
-        .problem-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .problem-card {
-            background: #87CEEB;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(70, 130, 180, 0.10);
-            transition: transform 0.3s ease;
-        }
-
-        .problem-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .problem-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Solution Section */
-        .solution {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #B0E0E6 0%, #4682B4 100%);
-            color: #2c3e50;
-        }
-
-        .solution-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .solution h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .solution-features {
-            list-style: none;
-        }
-
-        .solution-features li {
-            padding: 1rem 0;
-            position: relative;
-            padding-left: 2.5rem;
-        }
-
-        .solution-features li::before {
-            content: attr(data-icon);
-            position: absolute;
-            left: 0;
-            color: #4682B4;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .book-mockup {
-            text-align: center;
-            position: relative;
-        }
-
-        .book-cover {
-            width: 300px;
-            height: 400px;
-            background: linear-gradient(135deg, #87CEEB 0%, #4682B4 100%);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto;
-            box-shadow: 0 20px 40px rgba(70, 130, 180, 0.18);
-            transform: perspective(1000px) rotateY(-15deg);
-            transition: transform 0.3s ease;
-        }
-
-        .book-cover:hover {
-            transform: perspective(1000px) rotateY(0deg);
-        }
-
-        .book-title {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #fff;
-            text-align: center;
-            text-shadow: 1px 1px 8px #4682B4;
-        }
-
-        /* Benefits Section */
-        .benefits {
-            padding: 80px 0;
-            background: #B0E0E6;
-        }
-
-        .benefits h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #2c3e50;
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .benefit-card {
-            text-align: center;
-            padding: 2rem;
-            border-radius: 15px;
-            background: linear-gradient(135deg, #87CEEB 0%, #B0E0E6 100%);
-            transition: transform 0.3s ease;
-            box-shadow: 0 4px 12px rgba(70, 130, 180, 0.10);
-        }
-
-        .benefit-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 24px rgba(135, 206, 235, 0.18);
-        }
-
-        .benefit-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        /* CTA Section */
-        .final-cta {
-            background: linear-gradient(135deg, #87CEEB 0%, #4682B4 100%);
-            color: #2c3e50;
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .final-cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .price {
-            font-size: 3rem;
-            font-weight: bold;
-            margin: 2rem 0;
-            color: #4682B4;
-            text-shadow: 1px 1px 8px #87CEEB;
-        }
-
-        .guarantee {
-            background: rgba(135, 206, 235, 0.12);
-            padding: 2rem;
-            border-radius: 15px;
-            margin: 2rem 0;
-            backdrop-filter: blur(10px);
-        }
-
-        /* Footer */
-        footer {
-            background: #4682B4;
-            color: #fff;
-            padding: 2rem 0;
-            text-align: center;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .solution-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .book-cover {
-                width: 250px;
-                height: 350px;
-            }
-        }
-
-        /* Scroll animations */
-        .scroll-animation {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .scroll-animation.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+    <title>Desacelera - Guias Práticos para Ansiedade e Relaxamento</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <nav>
-            <div class="logo">Desacelera</div>
-            <ul class="nav-links">
-                <li><a href="#problema">Problema</a></li>
-                <li><a href="#solucao">Solução</a></li>
-                <li><a href="#beneficios">Benefícios</a></li>
-                <li><a href="#comprar">Comprar</a></li>
-            </ul>
+        <nav aria-label="Menu principal">
+            <div class="container" style="display: flex; justify-content: flex-end; align-items: center; padding: 1rem 0;">
+                <ul class="nav-links" style="display: flex; list-style: none; gap: 2rem; margin: 0;">
+                    <li><a href="#problema">Problema</a></li>
+                    <li><a href="#solucao">Solução</a></li>
+                    <li><a href="#tecnicas">Técnicas</a></li>
+                    <li><a href="#comprar">Comprar</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
 
@@ -376,7 +24,7 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Sua mente está cansada, ansiosa ou sobrecarregada?</h1>
-                <p class="hero-subtitle">Descubra como desacelerar e recuperar o controle da sua vida</p>
+                <p class="hero-subtitle">Descubra técnicas validadas por psicólogos para amenizar crises de ansiedade e acalmar a mente</p>
                 <a href="#comprar" class="cta-button">Quero Desacelerar Agora</a>
             </div>
         </div>
@@ -384,27 +32,27 @@
 
     <section id="problema" class="problem">
         <div class="container">
-            <h2>Esse material é pra você se...</h2>
+            <h2>Este material é para você se...</h2>
             <div class="problem-grid">
                 <div class="problem-card scroll-animation">
-                    <div class="problem-icon">😰</div>
-                    <h3>Ansiedade Atrapalha sua Rotina</h3>
-                    <p>Sente que a ansiedade interfere no seu dia a dia e nas suas atividades</p>
-                </div>
-                <div class="problem-card scroll-animation">
                     <div class="problem-icon">💥</div>
-                    <h3>Já Teve Crises</h3>
-                    <p>Já passou por crises de ansiedade e não sabia o que fazer naquele momento</p>
+                    <h3>Já Teve Crises de Ansiedade</h3>
+                    <p>Já passou por crises de ansiedade e não sabia o que fazer naquele momento difícil</p>
                 </div>
                 <div class="problem-card scroll-animation">
                     <div class="problem-icon">🫁</div>
-                    <h3>Quer Aprender a Respirar</h3>
-                    <p>Busca aprender a respirar e se acalmar com consciência e controle</p>
+                    <h3>Respiração Curta e Acelerada</h3>
+                    <p>Sente que a respiração fica curta durante momentos de estresse e ansiedade</p>
                 </div>
                 <div class="problem-card scroll-animation">
                     <div class="problem-icon">🧠</div>
-                    <h3>Mente Não Para Nunca</h3>
-                    <p>Procura uma alternativa simples e realista para cuidar da mente acelerada</p>
+                    <h3>Mente Acelerada</h3>
+                    <p>Tem dificuldade para desligar os pensamentos e acalmar a mente em dias cansativos</p>
+                </div>
+                <div class="problem-card scroll-animation">
+                    <div class="problem-icon">😰</div>
+                    <h3>Busca Técnicas Práticas</h3>
+                    <p>Procura métodos simples e eficazes para lidar com ansiedade no dia a dia</p>
                 </div>
             </div>
         </div>
@@ -414,22 +62,61 @@
         <div class="container">
             <div class="solution-content">
                 <div class="scroll-animation">
-                    <h2>A Solução que Você Precisa</h2>
-                    <p>O ebook "Desacelera" oferece:</p>
+                    <h2>2 Guias Completos com Técnicas Validadas</h2>
+                    <p><strong>O que você vai receber:</strong></p>
                     <ul class="solution-features">
-                        <li data-icon="🎧">Áudios relaxantes para qualquer hora</li>
-                        <li data-icon="📘">Técnicas práticas para recuperar sua paz</li>
-                        <li data-icon="💤">Ajuda para dormir melhor, desligar a mente e combater a insônia</li>
-                        <li data-icon="🧭">Um passo a passo direto, sem enrolação, pra você se acalmar com leveza</li>
-                        <li data-icon="🌀">Soluções reais para ansiedade e mente acelerada</li>
-                        <li data-icon="💸">Investimento acessível para um alívio valioso</li>
-                        <li data-icon="❤️">Suporte emocional para quem sente que a mente não para nunca</li>
+                        <li data-icon="📘">Guia: "6 Técnicas para Amenizar uma Crise de Ansiedade"</li>
+                        <li data-icon="🌿">Guia: "10 Dicas Práticas para Acalmar a Mente"</li>
+                        <li data-icon="🎧">Áudios relaxantes (chuva, ondas do mar, floresta)</li>
+                        <li data-icon="🧘">Respiração diafragmática e técnica 4-7-8</li>
+                        <li data-icon="🎯">Técnica 5-4-3-2-1 para grounding</li>
+                        <li data-icon="💆">Movimento consciente e alongamento</li>
+                        <li data-icon="🧠">Frases de autorregulação para crises</li>
+                        <li data-icon="❄️">Imersão sensorial com gelo e óleos essenciais</li>
                     </ul>
                 </div>
                 <div class="book-mockup scroll-animation">
                     <div class="book-cover">
-                        <div class="book-title">DESACELERA</div>
+                        <div class="book-title">DESACELERA<br><small>Guias Práticos</small></div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tecnicas" class="techniques-preview">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 2rem; color: #4682B4;">Prévia das Técnicas que Você Vai Aprender</h2>
+            <div class="techniques-grid">
+                <div class="technique-card scroll-animation" style="color: #4682B4;">
+                    <div class="technique-number">1</div>
+                    <h3>Respiração Diafragmática</h3>
+                    <p>Técnica que ativa o nervo vago e acalma o sistema nervoso. Amplamente usada em Terapia Cognitivo-Comportamental para desligar o estado de pânico.</p>
+                </div>
+                <div class="technique-card scroll-animation" style="color: #4682B4;">
+                    <div class="technique-number">2</div>
+                    <h3>Técnica 5-4-3-2-1</h3>
+                    <p>Método de grounding que reconecta você com o presente: 5 coisas que vê, 4 que toca, 3 que ouve, 2 que cheira, 1 que sabora.</p>
+                </div>
+                <div class="technique-card scroll-animation" style="color: #4682B4;">
+                    <div class="technique-number">3</div>
+                    <h3>Respiração 4-7-8</h3>
+                    <p>Inspire por 4 segundos, segure por 7, expire por 8. Ativa o sistema nervoso parassimpático e acalma o corpo em menos de 1 minuto.</p>
+                </div>
+                <div class="technique-card scroll-animation" style="color: #4682B4;">
+                    <div class="technique-number">4</div>
+                    <h3>Banho Consciente</h3>
+                    <p>Transforme um hábito comum em ritual de autocuidado usando mindfulness para focar nos sentidos e interromper pensamentos acelerados.</p>
+                </div>
+                <div class="technique-card scroll-animation" style="color: #4682B4;">
+                    <div class="technique-number">5</div>
+                    <h3>Imersão Sensorial</h3>
+                    <p>Use gelo, óleos essenciais cítricos ou água fria para "resetar" o sistema nervoso e sair do ciclo da crise.</p>
+                </div>
+                <div class="technique-card scroll-animation" style="color: #4682B4;">
+                    <div class="technique-number">6</div>
+                    <h3>Frases de Autorregulação</h3>
+                    <p>Substitua pensamentos negativos por frases como "Isso é só uma crise. Vai passar" e "Meu corpo está reagindo, mas eu estou seguro".</p>
                 </div>
             </div>
         </div>
@@ -440,34 +127,34 @@
             <h2>O que você vai conseguir:</h2>
             <div class="benefits-grid">
                 <div class="benefit-card scroll-animation">
-                    <div class="benefit-icon">🎧</div>
-                    <h3>Áudios Relaxantes</h3>
-                    <p>Acesso a áudios especialmente criados para te ajudar a relaxar a qualquer hora do dia</p>
+                    <div class="benefit-icon">🆘</div>
+                    <h3>Controle em Crises</h3>
+                    <p>Saiba exatamente o que fazer quando a ansiedade aparecer, com um passo a passo validado por psicólogos</p>
                 </div>
                 <div class="benefit-card scroll-animation">
-                    <div class="benefit-icon">📘</div>
-                    <h3>Técnicas Práticas</h3>
-                    <p>Métodos comprovados e fáceis de aplicar para recuperar sua paz interior</p>
+                    <div class="benefit-icon">🫁</div>
+                    <h3>Respiração Consciente</h3>
+                    <p>Domine técnicas de respiração que ativam o nervo vago e acalmam o sistema nervoso instantaneamente</p>
+                </div>
+                <div class="benefit-card scroll-animation">
+                    <div class="benefit-icon">🧠</div>
+                    <h3>Mente Mais Calma</h3>
+                    <p>Aprenda a desacelerar pensamentos e encontrar paz mental mesmo em dias cansativos</p>
+                </div>
+                <div class="benefit-card scroll-animation">
+                    <div class="benefit-icon">🎧</div>
+                    <h3>Áudios Terapêuticos</h3>
+                    <p>Tenha acesso a sons da natureza que reduzem cortisol e ativam áreas do cérebro associadas à calma</p>
                 </div>
                 <div class="benefit-card scroll-animation">
                     <div class="benefit-icon">💤</div>
                     <h3>Sono Reparador</h3>
-                    <p>Aprenda a desligar a mente e combater a insônia para dormir melhor</p>
+                    <p>Use as técnicas para melhorar a qualidade do sono e criar rituais noturnos de relaxamento</p>
                 </div>
                 <div class="benefit-card scroll-animation">
-                    <div class="benefit-icon">🧭</div>
-                    <h3>Passo a Passo Direto</h3>
-                    <p>Orientações claras e objetivas, sem enrolação, para se acalmar com leveza</p>
-                </div>
-                <div class="benefit-card scroll-animation">
-                    <div class="benefit-icon">🌀</div>
-                    <h3>Soluções Reais</h3>
-                    <p>Estratégias eficazes para lidar com ansiedade e mente acelerada</p>
-                </div>
-                <div class="benefit-card scroll-animation">
-                    <div class="benefit-icon">❤️</div>
-                    <h3>Suporte Emocional</h3>
-                    <p>Acolhimento e orientação para quem sente que a mente não para nunca</p>
+                    <div class="benefit-icon">🛡️</div>
+                    <h3>Prevenção de Crises</h3>
+                    <p>Implemente práticas diárias que fortalecem sua capacidade de lidar com estresse e ansiedade</p>
                 </div>
             </div>
         </div>
@@ -475,20 +162,16 @@
 
     <section id="comprar" class="final-cta">
         <div class="container">
-            <h2>Transforme Sua Vida Hoje</h2>
-            <div class="price">R$ 27,00</div>
-            <p>Investimento acessível para um alívio valioso</p>
-            
-            <div class="guarantee">
-                <h3>🛡️ Garantia de 30 dias</h3>
-                <p>Se não ficar satisfeito, devolvemos 100% do seu dinheiro</p>
-            </div>
-
-            <a href="#" class="cta-button" onclick="redirectToCheckout()">Comprar Agora</a>
-            
+            <h2>Transforme Sua Relação com a Ansiedade</h2>
+            <div class="price" style="text-shadow: 1px 1px 8px #4682B4;">R$ 14,90</div>
+            <p>Investimento acessível para técnicas que podem mudar sua vida</p>
+            <a href="https://pay.kirvano.com/a9ccf625-13a6-44e7-a291-b2f102c4b207" class="cta-button" onclick="redirectToCheckout()">Comprar Agora</a>
             <p style="margin-top: 2rem; opacity: 0.8;">
                 Acesso imediato após a compra • Formato digital • Compatível com todos os dispositivos
             </p>
+            <div style="margin-top: 3rem; font-size: 0.9rem; opacity: 0.7;">
+                <p><strong>Importante:</strong> Este material não substitui acompanhamento profissional, mas pode te ajudar a atravessar momentos difíceis com mais segurança e controle.</p>
+            </div>
         </div>
     </section>
 
@@ -525,23 +208,7 @@
         window.addEventListener('scroll', animateOnScroll);
         window.addEventListener('load', animateOnScroll);
 
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.boxShadow = 'none';
-            }
-        });
-
-        // Checkout redirect
-        function redirectToCheckout() {
-            alert('Aqui você integraria com seu sistema de pagamento (Hotmart, Monetizze, etc.)');
-            // window.location.href = 'https://seu-link-de-checkout.com';
-        }
+        // Header scroll effect removido para manter o degradê azul sempre
 
         // Add floating effect to book cover
         const bookCover = document.querySelector('.book-cover');
