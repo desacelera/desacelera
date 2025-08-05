@@ -407,6 +407,18 @@ a:hover {
         gap: 40px;
         text-align: center;
     }
+    
+    .hero-content {
+        justify-items: center;
+    }
+    
+    .price-box {
+        max-width: 400px;
+        width: 100%;
+        margin: 0 auto;
+        justify-self: center;
+    }
+    
     .depoimentos-grid {
         grid-template-columns: 1fr;
         gap: 30px;
@@ -417,11 +429,64 @@ a:hover {
     }
 }
 
+@media (max-width: 768px) {
+    .hero-content {
+        padding: 0 20px;
+        gap: 30px;
+    }
+    
+    .price-box {
+        max-width: 380px;
+        padding: 28px 24px;
+    }
+    
+    .security-badges {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+    
+    .badge {
+        flex: 1;
+        min-width: 120px;
+        max-width: 150px;
+        font-size: 0.95em;
+    }
+}
+
 @media (max-width: 600px) {
     .hero {
         padding: 30px 0;
         min-height: unset;
     }
+    
+    .hero-content {
+        padding: 0 15px;
+        justify-items: center;
+    }
+    
+    .price-box {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+        padding: 24px 20px;
+        justify-self: center;
+    }
+    
+    .security-badges {
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+    }
+    
+    .badge {
+        width: 100%;
+        max-width: 200px;
+        text-align: center;
+        padding: 0.6em 1em;
+        font-size: 0.9em;
+    }
+    
     .section-content {
         padding: 1em;
     }
