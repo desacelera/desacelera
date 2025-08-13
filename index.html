@@ -7,6 +7,25 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
 
+    <!-- Facebook Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    
+    // SUBSTITUA 'YOUR_PIXEL_ID_HERE' pelo seu ID do Facebook Pixel
+    fbq('init', 'YOUR_PIXEL_ID_HERE');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID_HERE&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
 
 </head>
 <body>
@@ -156,66 +175,109 @@
             <a href="https://pay.kirvano.com/a9ccf625-13a6-44e7-a291-b2f102c4b207" class="cta-button">Quero Desacelerar!</a>
         </div>
     </section>
-</body>
-</html>
 
-<script>
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-
-
-
-    // Add hover effects and animations
-    document.addEventListener('DOMContentLoaded', function() {
-        // Animate statistics on scroll
-        const observerOptions = {
-            threshold: 0.5,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const statNumbers = entry.target.querySelectorAll('.stat-number');
-                    statNumbers.forEach(stat => {
-                        const finalValue = parseInt(stat.textContent.replace(/\D/g, ''));
-                        animateNumber(stat, 0, finalValue, 2000);
-                    });
-                }
-            });
-        }, observerOptions);
-
-        const statsSection = document.querySelector('.estatisticas');
-        if (statsSection) {
-            observer.observe(statsSection);
-        }
-    });
-
-    // Number animation function
-    function animateNumber(element, start, end, duration) {
-        const range = end - start;
-        const startTime = performance.now();
-        
-        function updateNumber(currentTime) {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const current = Math.floor(start + (range * progress));
-            
-            element.textContent = '+' + current;
-            
-            if (progress < 1) {
-                requestAnimationFrame(updateNumber);
+    <!-- Facebook Pixel Events Script -->
+    <script>
+        // Facebook Pixel Event Functions
+        function trackPurchaseIntent() {
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'InitiateCheckout', {
+                    content_name: 'Desacelera - Material Digital',
+                    content_category: 'Digital Product',
+                    value: 14.90,
+                    currency: 'BRL'
+                });
             }
         }
-        
-        requestAnimationFrame(updateNumber);
-    }
-</script>
+
+        function trackViewContent() {
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'ViewContent', {
+                    content_name: 'Desacelera Landing Page',
+                    content_category: 'Digital Product',
+                    value: 14.90,
+                    currency: 'BRL'
+                });
+            }
+        }
+
+        function trackAddToCart() {
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'AddToCart', {
+                    content_name: 'Desacelera - Material Digital',
+                    content_category: 'Digital Product',
+                    value: 14.90,
+                    currency: 'BRL'
+                });
+            }
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Track CTA button clicks
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function() {
+                trackPurchaseIntent();
+            });
+        });
+
+        // Add hover effects and animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Track page view
+            trackViewContent();
+
+            // Animate statistics on scroll
+            const observerOptions = {
+                threshold: 0.5,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const statNumbers = entry.target.querySelectorAll('.stat-number');
+                        statNumbers.forEach(stat => {
+                            const finalValue = parseInt(stat.textContent.replace(/\D/g, ''));
+                            animateNumber(stat, 0, finalValue, 2000);
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            const statsSection = document.querySelector('.estatisticas');
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
+        });
+
+        // Number animation function
+        function animateNumber(element, start, end, duration) {
+            const range = end - start;
+            const startTime = performance.now();
+            
+            function updateNumber(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const current = Math.floor(start + (range * progress));
+                
+                element.textContent = '+' + current;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(updateNumber);
+                }
+            }
+            
+            requestAnimationFrame(updateNumber);
+        }
+    </script>
+</body>
+</html>
 
